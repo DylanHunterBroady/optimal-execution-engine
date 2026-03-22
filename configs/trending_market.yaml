@@ -1,0 +1,61 @@
+order:
+  parent_order_size: 250000
+  side: buy
+  start_time: "09:30"
+  end_time: "16:00"
+  horizon_buckets: 39
+  urgency: 0.65
+  benchmark_type: implementation_shortfall
+  max_participation_rate: 0.15
+  min_child_order_size: 500
+  residual_liquidation_rule: market
+
+market:
+  initial_price: 100.0
+  annualized_volatility: 0.3
+  adv: 12000000
+  intraday_volume_curve_shape: front_loaded
+  spread_bps: 8.5
+  depth_at_touch: 32000
+  refill_rate: 0.75
+  drift_regime: uptrend
+  jump_probability: 0.01
+  jump_scale: 0.012
+  mean_reversion_strength: 0.05
+  regime_name: trending_market
+
+impact:
+  temporary_impact_coefficient: 0.0017
+  permanent_impact_coefficient: 0.00045
+  impact_exponent: 0.5
+  resilience_decay: 0.42
+  information_leakage_coefficient: 0.22
+  adverse_selection_coefficient: 0.1
+  impact_model: square_root
+
+fill:
+  passive_fill_probability: 0.52
+  queue_penalty: 0.0002
+  cancellation_rate: 0.08
+  marketable_fraction: 0.68
+  latency_penalty: 0.03
+
+optimization:
+  risk_aversion_grid: [0.0000001, 0.0000003, 0.000001, 0.000003, 0.00001]
+  monte_carlo_paths: 100
+  solver_tolerance: 0.00000001
+  penalty_weights:
+    completion: 1000000
+    participation: 5000
+    smoothness: 45
+  scenario_seed: 29
+
+strategies:
+  - twap
+  - vwap
+  - pov
+  - implementation_shortfall
+  - almgren_chriss
+  - adaptive_policy
+
+notes: Trending market regime with favorable drift for a buy program.

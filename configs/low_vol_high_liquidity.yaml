@@ -1,0 +1,61 @@
+order:
+  parent_order_size: 250000
+  side: buy
+  start_time: "09:30"
+  end_time: "16:00"
+  horizon_buckets: 39
+  urgency: 0.35
+  benchmark_type: implementation_shortfall
+  max_participation_rate: 0.18
+  min_child_order_size: 500
+  residual_liquidation_rule: market
+
+market:
+  initial_price: 100.0
+  annualized_volatility: 0.18
+  adv: 18000000
+  intraday_volume_curve_shape: u_shaped
+  spread_bps: 4.0
+  depth_at_touch: 60000
+  refill_rate: 1.0
+  drift_regime: neutral
+  jump_probability: 0.004
+  jump_scale: 0.008
+  mean_reversion_strength: 0.1
+  regime_name: low_vol_high_liquidity
+
+impact:
+  temporary_impact_coefficient: 0.0011
+  permanent_impact_coefficient: 0.00025
+  impact_exponent: 0.5
+  resilience_decay: 0.55
+  information_leakage_coefficient: 0.18
+  adverse_selection_coefficient: 0.08
+  impact_model: square_root
+
+fill:
+  passive_fill_probability: 0.68
+  queue_penalty: 0.00012
+  cancellation_rate: 0.05
+  marketable_fraction: 0.55
+  latency_penalty: 0.02
+
+optimization:
+  risk_aversion_grid: [0.00000005, 0.0000001, 0.0000003, 0.000001, 0.000003]
+  monte_carlo_paths: 100
+  solver_tolerance: 0.00000001
+  penalty_weights:
+    completion: 1000000
+    participation: 4000
+    smoothness: 50
+  scenario_seed: 11
+
+strategies:
+  - twap
+  - vwap
+  - pov
+  - implementation_shortfall
+  - almgren_chriss
+  - adaptive_policy
+
+notes: Low vol and liquidity regime.
