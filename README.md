@@ -2,7 +2,7 @@
 
 This repo is a Python research project for studying how large equity orders should be executed under different market conditions. It simulates intraday price, volume, spread, and liquidity dynamics, applies temporary and permanent market impact, and compares several execution strategies under a common framework.
 
-The goal is simple: understand the tradeoff between execution cost and execution risk when working a large parent order over a fixed horizon.
+The goal is to study the tradeoff between execution cost and execution risk when working a large parent order over a fixed horizon.
 
 ## Research question
 
