@@ -1,4 +1,4 @@
-****# Optimal Execution and Market Impact Simulation Engine
+# Optimal Execution and Market Impact Simulation Engine
 
 Optimal execution and market impact simulator for large equity parent orders. The repo is built as an execution research environment: discrete-time microstructure-aware market simulation, configurable impact and fill models, cross-strategy comparison, implementation-shortfall analytics, and deterministic/stochastic frontier analysis.
 
